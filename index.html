@@ -7,15 +7,82 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!--шапка з навігацією-->
+    <header>
+        <h1>Трекер прочитаних книг</h1>
+        <nav>
+            <ul>
+                <li><a href="#add-book">Додати книгу</a></li>
+                <li><a href="#my-books">Мої книги</a></li>
+                <li><a href="#reading-stats">Статистика</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!--форма додавання книги-->
+    <main>
+        <section id="add-book">
+            <h2>Додати книгу</h2>
+            <form action="#" method="post">
+                <div>
+                    <label for="book-title">Назва книги:</label>
+                    <input type="text" id="book-title" name="title" required>
+                </div>
 
-    <!--список книг (картки з автором і статусом)-->
+                <div>
+                    <label for="book-author">Автор:</label>
+                    <input type="text" id="book-author" name="author" required>
+                </div>
 
-    <!--блок статистики читання-->
+                <div>
+                    <label for="book-status">Статус:</label>
+                    <select id="book-status" name="status">
+                        <option value="not-reading">Не читається</option>
+                        <option value="reading">Читається</option>
+                        <option value="finished">Прочитано</option>
+                    </select>
+                </div>
 
-    <!--підвал-->
+                <button type="submit">Додати книгу</button>
+            </form>
+        </section>
+
+        <section id="my-books">
+            <h2>Мої книги</h2>
+            <article class="book-card">
+                <h3>Назва книги</h3>
+                <p><strong>Автор:</strong> Ім'я автора</p>
+                <p><strong>Статус:</strong> Читається</p>
+            </article>
+
+            <article class="book-card">
+                <h3>Назва книги</h3>
+                <p><strong>Автор:</strong> Ім'я автора</p>
+                <p><strong>Статус:</strong> Читається</p>
+            </article>
+
+            <article class="book-card">
+                <h3>Назва книги</h3>
+                <p><strong>Автор:</strong> Ім'я автора</p>
+                <p><strong>Статус:</strong> Читається</p>
+            </article>
+            
+            <article class="book-card">
+                <h3>Назва книги</h3>
+                <p><strong>Автор:</strong> Ім'я автора</p>
+                <p><strong>Статус:</strong> Читається</p>
+            </article>
+        </section>
+    </main>
+
+    <aside id="reading-stats">
+        <h2>Статистика читання</h2>
+        <p>Прочитано: 0</p>
+        <p>Читається: 0</p>
+        <p>Не почато/Закинуто: 0</p>
+    </aside>
+
+    <footer>
+        <p><strong>Автор сайту:</strong>Володимир Дзьобань</p>
+    </footer>
 
     <script src="js/app.js"></script>
 </body>
