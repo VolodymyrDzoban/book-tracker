@@ -1,3 +1,12 @@
+/* ==========================================================================
+   ОБҐРУНТУВАННЯ НЕЧІТКОЇ ВИМОГИ (ВАРІАНТ 9: "Особиста бібліотека"):
+   Для відтворення атмосфери класичної домашньої бібліотеки обрано теплу "паперову"
+   палітру з кремовими фоновими відтінками (#FFFDD0, #FDF5E6) та глибокими 
+   коричневими тонами (#4A2E2B, #361F1D), що асоціюються з деревиною та шкіряними 
+   палітурками. Для заголовків (h1, h2, h3) застосовано серифний шрифт Merriweather / Georgia, 
+   який відсилає до друкованої книжкової типографіки та забезпечує елегантний вигляд.
+   ========================================================================== */
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -9,18 +18,23 @@ body {
     font-family: Arial, sans-serif;
     font-size: 1.4rem;
     line-height: 1.4;
-    background: #FFFDD0;
-    color: #4A2E2B;
+    background: #FFFDD0; /* Тепла паперова палітра */
+    color: #4A2E2B; /* Контраст із фоном = 11.77:1 */
+}
+
+/* Використання серифного шрифту для всіх заголовків */
+h1, h2, h3 {
+    font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
 }
 
 header {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    background: #4A2E2B;
-    color: #FFFDD0;
+    background: #4A2E2B; /* Темно-коричневий фон */
+    color: #FFFDD0;  /* Контраст із фоном = 11.77:1 */
     padding: 20px;
-    border-bottom: 1rem solid #633E3A;
+    border-bottom: 1rem solid #633E3A; /* Темно-коричневий акцентний бордер */
 }
 
 header h1 {
@@ -35,17 +49,23 @@ header nav ul {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     list-style: none;
 }
 
 header nav a {
-    color: #FFFDD0;
+    color: #FFFDD0; /* Контраст із фоном = 11.77:1 */
     text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.2s;
 }
 
 header nav a:hover {
     text-decoration: underline;
+    opacity: 0.85;
 }
 
 main {
@@ -55,24 +75,104 @@ main {
 }
 
 main section {
-    margin: 20px;
+    margin: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#add-book form, form div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+#my-books h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
 }
 
+/* Розділ "Додати книгу" */
+#add-book {
+    background: #FDF5E6; /* Кремовий фон */
+    padding: 30px 24px;
+    border-radius: 1rem;
+    border: 3px solid #361F1D;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 460px;
+    margin: 20px auto 40px auto;
+}
+
+#add-book h2 {
+    margin-bottom: 20px;
+    color: #361F1D; /* Контраст із фоном = 14.13:1 */
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+#add-book form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+#add-book form div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    width: 100%;
+}
+
+#add-book label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4A2E2B; /* Контраст із фоном = 11.28:1 */
+}
+
+#add-book input[type="text"],
+#add-book select {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1rem;
+    border: 2px solid #633E3A;
+    border-radius: 8px;
+    background-color: #FFFDD0;
+    color: #361F1D; /* Контраст із фоном = 14.74:1 */
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#add-book input[type="text"]:focus,
+#add-book select:focus {
+    border-color: #4A2E2B;
+    box-shadow: 0 0 0 3px rgba(74, 46, 43, 0.25);
+}
+
+#add-book button[type="submit"] {
+    margin-top: 10px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #FFFDD0; /* Контраст із фоном = 11.77:1 */
+    background-color: #4A2E2B; /* Темно-коричневий фон */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+}
+
+#add-book button[type="submit"]:hover {
+    background-color: #633E3A; /* Світліший темно-коричневий акцентний фон при наведенні*/
+}
+
+#add-book button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Картки книг */
 .cards {
     display: grid;
     grid-template-columns: 1fr;
     place-items: center;
-    gap: 20px;
+    gap: 24px;
     width: 100%;
 }
 
@@ -80,36 +180,53 @@ main section {
     container-type: inline-size;
     width: 100%;
     max-width: 200px;
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 2 / 3; /* Чітка вимога 1: Співвідношення сторін 2:3 */
     background-color: #D2B48C;
-    border-radius: 6px;
+    border-radius: 6px; /* Чітка вимога 2: border-radius у межах 4-8px */
     border-left: 5px solid #633E3A;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
-    padding: 12px 10px;
+    padding: 14px 12px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    color: #361F1D;
+    gap: 14px;
+    color: #361F1D; /* Контраст із фоном = 7.76:1 */
     text-align: left;
     overflow: hidden;
 }
 
 .book-card h3 {
-    margin: 0 0 6px 0;
-    font-size: clamp(0.85rem, 9.5cqw, 1.25rem);
-    line-height: 1.2;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(1rem, 11.5cqw, 1.45rem);
+    line-height: 1.25;
 }
 
 .book-card p {
-    margin: 3px 0;
-    font-size: clamp(0.7rem, 7.5cqw, 0.95rem);
-    line-height: 1.2;
+    margin: 0;
+    font-size: clamp(0.8rem, 9cqw, 1.1rem);
+    line-height: 1.25;
 }
 
+/* Деталі дизайну: Кольоровий індикатор статусу */
+.status-indicator {
+    width: calc(100% + 24px);
+    margin-left: -12px;
+    margin-right: -12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.status-indicator.not-reading { background-color: #D32F2F; } /* Червоний */
+.status-indicator.reading { background-color: #E6A100; }     /* Насичений золотистий (WCAG AA) */
+.status-indicator.finished { background-color: #388E3C; }    /* Зелений */
+
+/* Блок статистики */
 #reading-stats {
     container-type: inline-size;
-    background: #FDF5E6;
+    background: #FDF5E6; /* Кремовий фон */
     width: 90%;
     margin: 30px auto;
     border-radius: 1rem;
@@ -117,7 +234,7 @@ main section {
     border: 3px solid #361F1D;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.4);
     text-align: center;
-    color: #361F1D;
+    color: #361F1D; /* Контраст із фоном = 14.13:1 */
 }
 
 #reading-stats h2 {
@@ -132,16 +249,18 @@ main section {
 }
 
 footer {
-    background: #4A2E2B;
-    color: #D1BCA6;
+    background: #4A2E2B; /* Темно-коричневий фон */
+    color: #FFFDD0; /* Контраст із фоном = 11.77:1 */
     margin-top: 10px;
     padding: 10px;
     font-size: 0.8rem;
 }
 
+/* Адаптивність */
 @media (min-width: 600px) {
     header nav ul {
         flex-direction: row;
+        gap: 20px;
     }
 
     .cards {
@@ -180,16 +299,18 @@ footer {
         min-width: 0;
         max-width: 100%;
         margin: 0;
-        padding: 20px;
+        padding: 20px 40px;
     }
 
     #reading-stats {
         grid-area: aside;
         width: 100%;
         max-width: 240px;
-        margin: auto;
-        align-self: center;
-        position: static;
+        align-self: start; 
+        position: sticky;
+        top: 50vh;
+        transform: translateY(-50%);
+        margin: 0 40px 0 0;
     }
 
     footer {
@@ -197,10 +318,10 @@ footer {
     }
 
     .cards {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        max-width: 820px;
+        grid-template-columns: repeat(5, 1fr);
+        max-width: 1000px;
         margin: 0 auto;
-        gap: 12px;
+        gap: 24px;
         place-items: stretch;
     }
 

@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Трекер прочитаних книг</title>
+    <!-- Підключення серифного шрифту Merriweather для заголовків -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,9 +15,9 @@
         <h1>Трекер прочитаних книг</h1>
         <nav>
             <ul>
-                <li><a href="#add-book">Додати книгу</a></li>
-                <li><a href="#my-books">Мої книги</a></li>
-                <li><a href="#reading-stats">Статистика</a></li>
+                <li><a href="#add-book">➕ Додати книгу</a></li>
+                <li><a href="#my-books">📚 Мої книги</a></li>
+                <li><a href="#reading-stats">📊 Статистика</a></li>
             </ul>
         </nav>
     </header>
@@ -24,19 +28,19 @@
             <form action="#" method="post">
                 <div>
                     <label for="book-title">Назва книги:</label>
-                    <input type="text" id="book-title" name="title" required>
+                    <input type="text" id="book-title" name="title" placeholder="Введіть назву..." required>
                 </div>
 
                 <div>
                     <label for="book-author">Автор:</label>
-                    <input type="text" id="book-author" name="author" required>
+                    <input type="text" id="book-author" name="author" placeholder="Введіть ім'я автора..." required>
                 </div>
 
                 <div>
                     <label for="book-status">Статус:</label>
                     <select id="book-status" name="status">
-                        <option value="not-reading">Не читається</option>
-                        <option value="reading">Читається</option>
+                        <option value="not-reading">Не почато</option>
+                        <option value="reading" selected>Читається</option>
                         <option value="finished">Прочитано</option>
                     </select>
                 </div>
@@ -52,42 +56,91 @@
                     <h3>Назва книги</h3>
                     <p><strong>Автор:</strong> Ім'я автора</p>
                     <p><strong>Статус:</strong> Читається</p>
+                    <div class="status-indicator reading"></div>
                 </article>
 
                 <article class="book-card">
                     <h3>Назва книги</h3>
                     <p><strong>Автор:</strong> Ім'я автора</p>
                     <p><strong>Статус:</strong> Читається</p>
+                    <div class="status-indicator reading"></div>
+                </article>
+
+                <article class="book-card">
+                    <h3>Назва книги</h3>
+                    <p><strong>Автор:</strong> Ім'я автора</p>
+                    <p><strong>Статус:</strong> Прочитано</p>
+                    <div class="status-indicator finished"></div>
+                </article>
+
+                <article class="book-card">
+                    <h3>Назва книги</h3>
+                    <p><strong>Автор:</strong> Ім'я автора</p>
+                    <p><strong>Статус:</strong> Прочитано</p>
+                    <div class="status-indicator finished"></div>
                 </article>
 
                 <article class="book-card">
                     <h3>Назва книги</h3>
                     <p><strong>Автор:</strong> Ім'я автора</p>
                     <p><strong>Статус:</strong> Читається</p>
+                    <div class="status-indicator reading"></div>
                 </article>
-            
+
+                <article class="book-card">
+                    <h3>Назва книги</h3>
+                    <p><strong>Автор:</strong> Ім'я автора</p>
+                    <p><strong>Статус:</strong> Прочитано</p>
+                    <div class="status-indicator finished"></div>
+                </article>
+
+                <article class="book-card">
+                    <h3>Назва книги</h3>
+                    <p><strong>Автор:</strong> Ім'я автора</p>
+                    <p><strong>Статус:</strong> Не почато</p>
+                    <div class="status-indicator not-reading"></div>
+                </article>
+
                 <article class="book-card">
                     <h3>Назва книги</h3>
                     <p><strong>Автор:</strong> Ім'я автора</p>
                     <p><strong>Статус:</strong> Читається</p>
+                    <div class="status-indicator reading"></div>
                 </article>
-            
+
+                <article class="book-card">
+                    <h3>Назва книги</h3>
+                    <p><strong>Автор:</strong> Ім'я автора</p>
+                    <p><strong>Статус:</strong> Прочитано</p>
+                    <div class="status-indicator finished"></div>
+                </article>
+
+                <article class="book-card">
+                    <h3>Назва книги</h3>
+                    <p><strong>Автор:</strong> Ім'я автора</p>
+                    <p><strong>Статус:</strong> Прочитано</p>
+                    <div class="status-indicator finished"></div>
+                </article>
+
                 <article class="book-card">
                     <h3>Назва книги</h3>
                     <p><strong>Автор:</strong> Ім'я автора</p>
                     <p><strong>Статус:</strong> Читається</p>
+                    <div class="status-indicator reading"></div>
                 </article>
-            
+
                 <article class="book-card">
                     <h3>Назва книги</h3>
                     <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Читається</p>
+                    <p><strong>Статус:</strong> Не почато</p>
+                    <div class="status-indicator not-reading"></div>
                 </article>
-            
+
                 <article class="book-card">
                     <h3>Назва книги</h3>
                     <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Читається</p>
+                    <p><strong>Статус:</strong> Не почато</p>
+                    <div class="status-indicator not-reading"></div>
                 </article>
             </div>
         </section>
@@ -97,11 +150,11 @@
         <h2>Статистика читання</h2>
         <p>Прочитано: 0</p>
         <p>Читається: 0</p>
-        <p>Не почато/Закинуто: 0</p>
+        <p>Не почато: 0</p>
     </aside>
 
     <footer>
-        <p><strong>Автор сайту:</strong>Володимир Дзьобань</p>
+        <p><strong>Автор сайту:</strong> Володимир Дзьобань</p>
     </footer>
 
     <script src="js/app.js"></script>
