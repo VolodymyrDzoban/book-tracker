@@ -52,96 +52,13 @@
 
         <section id="my-books">
             <h2>Мої книги</h2>
-            <div class="cards">
+            <div class="cards" id="books-list">
                 <article class="book-card">
                     <h3>Назва книги</h3>
                     <p><strong>Автор:</strong> Ім'я автора</p>
+                    <p><strong>Сторінок:</strong> 0</p>
                     <p><strong>Статус:</strong> Читається</p>
                     <div class="status-indicator reading"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Читається</p>
-                    <div class="status-indicator reading"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Прочитано</p>
-                    <div class="status-indicator finished"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Прочитано</p>
-                    <div class="status-indicator finished"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Читається</p>
-                    <div class="status-indicator reading"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Прочитано</p>
-                    <div class="status-indicator finished"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Не почато</p>
-                    <div class="status-indicator not-reading"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Читається</p>
-                    <div class="status-indicator reading"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Прочитано</p>
-                    <div class="status-indicator finished"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Прочитано</p>
-                    <div class="status-indicator finished"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Читається</p>
-                    <div class="status-indicator reading"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Не почато</p>
-                    <div class="status-indicator not-reading"></div>
-                </article>
-
-                <article class="book-card">
-                    <h3>Назва книги</h3>
-                    <p><strong>Автор:</strong> Ім'я автора</p>
-                    <p><strong>Статус:</strong> Не почато</p>
-                    <div class="status-indicator not-reading"></div>
                 </article>
             </div>
         </section>
@@ -149,9 +66,10 @@
 
     <aside id="reading-stats">
         <h2>Статистика читання</h2>
-        <p>Прочитано: 0</p>
-        <p>Читається: 0</p>
-        <p>Не почато: 0</p>
+        <p id="books-count">Усього книг: 0</p>
+        <p id="finished-count">Прочитано: 0</p>
+        <p id="reading-count">Читається: 0</p>
+        <p id="not-reading-count">Не почато: 0</p>
     </aside>
 
     <footer>
