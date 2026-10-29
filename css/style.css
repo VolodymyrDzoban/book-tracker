@@ -127,6 +127,7 @@ main section {
 }
 
 #add-book input[type="text"],
+#add-book input[type="number"],
 #add-book select {
     width: 100%;
     padding: 10px 14px;
@@ -140,9 +141,23 @@ main section {
 }
 
 #add-book input[type="text"]:focus,
+#add-book input[type="number"]:focus,
 #add-book select:focus {
     border-color: #4A2E2B;
     box-shadow: 0 0 0 3px rgba(74, 46, 43, 0.25);
+}
+
+/* Chrome, Safari, Edge, Opera */
+#add-book input[type="number"]::-webkit-outer-spin-button,
+#add-book input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+#add-book input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 #add-book button[type="submit"] {
@@ -181,7 +196,7 @@ main section {
     width: 100%;
     max-width: 200px;
     aspect-ratio: 2 / 3; /* Чітка вимога 1: Співвідношення сторін 2:3 */
-    background-color: #D2B48C;
+    background-color: #CDAB7F;
     border-radius: 6px; /* Чітка вимога 2: border-radius у межах 4-8px */
     border-left: 5px solid #633E3A;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
@@ -191,7 +206,7 @@ main section {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 14px;
-    color: #361F1D; /* Контраст із фоном = 7.76:1 */
+    color: #361F1D; /* Контраст із фоном = 7.10:1 */
     text-align: left;
     overflow: hidden;
 }
@@ -208,6 +223,35 @@ main section {
     margin: 0;
     font-size: clamp(0.8rem, 9cqw, 1.1rem);
     line-height: 1.25;
+}
+
+.book-card .book-status-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.book-status-row strong {
+    flex-shrink: 0;
+}
+
+.book-card .book-status {
+    flex: 1;
+    min-width: 0;
+    padding: 4px 4px 4px 0;
+    border: 1px solid #361F1D;
+    border-radius: 4px;
+    background-color: #FFFDD0;
+    color: #361F1D;
+    font: inherit;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.book-card .book-status:focus {
+    outline: 2px solid #361F1D;
+    outline-offset: 2px;
 }
 
 /* Деталі дизайну: Кольоровий індикатор статусу */
