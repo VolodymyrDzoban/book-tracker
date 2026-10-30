@@ -1,3 +1,6 @@
+// Базова адреса Open Library Search API.
+const OPEN_LIBRARY_SEARCH_URL = 'https://openlibrary.org/search.json';
+
 console.log("script.js підключено"); // Повідомлення в консоль для перевірки підключення скрипта
 
 // Програмне видалення статичного прикладу картки-заглушки з HTML
@@ -240,3 +243,93 @@ function updateReadingStats() {
 }
 
 updateReadingStats();
+
+const searchForm = document.querySelector('#book-search-form');
+const searchInput = document.querySelector('#book-search-title');
+const searchStatus = document.querySelector('#book-search-status');
+const searchError = document.querySelector('#book-search-error');
+const searchResults = document.querySelector('#book-search-results');
+const retrySearchButton = document.querySelector('#book-search-retry');
+let lastSearchQuery = '';
+
+// Відображає не більше 12 книг із відповіді API.
+function renderSearchResults(books) {
+    searchResults.replaceChildren();
+
+    books.slice(0, 12).forEach(book => {
+        const result = document.createElement('article');
+        result.classList.add('search-result');
+
+        const title = document.createElement('h3');
+        title.textContent = book.title || 'Назва невідома';
+
+        const author = document.createElement('p');
+        author.textContent = `Автор: ${book.author_name?.join(', ') || 'Не вказаний'}`;
+
+        const year = document.createElement('p');
+        year.textContent = `Перший рік видання: ${book.first_publish_year || 'Невідомий'}`;
+
+        result.append(title, author, year);
+        searchResults.append(result);
+    });
+}
+
+// Шукає книги та показує результати або повідомлення про помилку.
+async function searchBooks(query) {
+    lastSearchQuery = query;
+    searchStatus.textContent = 'Шукаємо книги…';
+    searchError.hidden = true;
+    searchResults.replaceChildren();
+    searchForm.querySelector('button[type="submit"]').disabled = true;
+    retrySearchButton.disabled = true;
+
+    try {
+        const params = new URLSearchParams({ q: query, limit: '12' });
+        const response = await fetch(`${OPEN_LIBRARY_SEARCH_URL}?${params}`);
+        if (!response.ok) {
+            throw new Error(`Open Library returned ${response.status}`);
+        }
+        const data = await response.json();
+
+        if (!Array.isArray(data.docs)) {
+            throw new Error('Open Library response does not contain a docs array');
+        }
+
+        if (data.docs.length === 0) {
+            searchStatus.textContent = 'За цим запитом книг не знайдено.';
+            return;
+        }
+        console.log(data);
+
+        renderSearchResults(data.docs);
+        searchStatus.textContent = 'Перші 12 результатів.';
+    } catch (error) {
+        console.error('Помилка пошуку книг:', error);
+        searchStatus.textContent = '';
+        searchError.hidden = false;
+    } finally {
+        searchForm.querySelector('button[type="submit"]').disabled = false;
+        retrySearchButton.disabled = false;
+    }
+}
+
+// Запускає пошук за введеною назвою книги.
+searchForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const query = searchInput.value.trim();
+
+    if (!query) {
+        searchStatus.textContent = 'Введіть назву книги для пошуку.';
+        searchInput.focus();
+        return;
+    }
+
+    searchBooks(query);
+});
+
+// Повторює останній пошуковий запит після помилки.
+retrySearchButton.addEventListener('click', () => {
+    if (lastSearchQuery) {
+        searchBooks(lastSearchQuery);
+    }
+});

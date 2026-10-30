@@ -18,6 +18,7 @@
             <ul>
                 <li><a href="#add-book">➕ Додати книгу</a></li>
                 <li><a href="#my-books">📚 Мої книги</a></li>
+                <li><a href="#find-books">🔎 Знайти книги</a></li>
                 <li><a href="#reading-stats">📊 Статистика</a></li>
             </ul>
         </nav>
@@ -66,6 +67,21 @@
                     <div class="status-indicator reading"></div>
                 </article>
             </div>
+        </section>
+
+        <section id="find-books">
+            <h2>Знайти книги</h2>
+            <form id="book-search-form">
+                <label for="book-search-title">Назва книги:</label>
+                <input type="search" id="book-search-title" name="title" placeholder="Введіть назву книги..." required>
+                <button type="submit">Знайти</button>
+            </form>
+            <p id="book-search-status" role="status" aria-live="polite"></p>
+            <div id="book-search-error" role="alert" hidden>
+                <p>Не вдалося виконати пошук. Перевірте з’єднання та спробуйте ще раз.</p>
+                <button type="button" id="book-search-retry">Повторити</button>
+            </div>
+            <div id="book-search-results" class="search-results" aria-live="polite"></div>
         </section>
     </main>
 
